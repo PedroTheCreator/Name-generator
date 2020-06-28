@@ -11,19 +11,19 @@ if menu == 1:
 elif menu == 2:
   genero = "female"
 else: 
-  print("Opção inválida.")
-try: 
+    print("Opção inválida.")
+try:
   print("===== Lista {} =====".format(list_counter))
   while(escolha != 1 and counter < counter2):
-    nome=names.get_full_name(gender=genero)
-    counter+=1
-    print("{}. {}".format(counter+1,nome))
-    nomes.append(nome)
-    if counter == (counter2-1):
-      escolha = int(input())
-      counter2= counter2 + 10 
-      #list_counter= list_counter + 1
-      #print("===== Lista {} =====".format(list_counter)) 
-else:
-  print("Fim do progama...")
-
+      nome=names.get_full_name(gender=genero)
+      counter+=1
+      print("{}. {}".format(counter+1,nome))
+      nomes.append(nome)
+      if counter == (counter2-1):
+          escolha = int(input(""))
+          counter2= counter2 + 10 
+except:
+  print("O programa não pode continuar.")
+print("Fim do programa")
+            
+             
