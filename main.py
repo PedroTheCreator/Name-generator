@@ -1,4 +1,5 @@
 from tkinter import *
+import names
 def tfb(app,texto,x,y,w,h):
   Label(app,text=texto,background="#dde", foreground="#009",anchor=W).place(x=x,y=y,width=w,h=20)
 def button(app,texto,comando, x,y,w,h):
@@ -10,7 +11,6 @@ def dados():
 app=Tk()
 app.configure(background="#dde")
 app.geometry("1280x720")
-import names
 escolha = 2
 counter = 0
 nomes = []
@@ -25,7 +25,7 @@ tfb(app,"Insira sua escolha",10,90,250,20)
 menu = 0
 form = Entry(app)
 form.place(x=10,y=110, width=200,height=20)
-button(app,"Enviar",dados,10,130,20,20)
+button(app,"Enviar",dados,10,140,75,75)
 print(menu)
 #print("===== Gerador de nomes =====\nMenu:\n1 --> Nomes masculinos\n2 --> Nomes femininos")
 
@@ -36,7 +36,7 @@ elif menu == 2:
 else: 
     print("Opção inválida.")
 try:
-  tfb(app,"Insira sua escolha",10,130,250,20)
+  #tfb(app,"Insira sua escolha",10,130,250,20)
   print("===== Lista {} =====".format(list_counter))
   while(escolha != 1 and counter < counter2):
       
