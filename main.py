@@ -29,6 +29,7 @@ if terminador != 0:
   else: 
     terminador = 0
     print(Fore.RED + "Opção inválida.")
+os.system('sleep 2')
 os.system('clear')
 if terminador == 1:
   try:
@@ -54,3 +55,5 @@ if terminador == 1:
   except:
     print(Fore.RED + "O programa não pode continuar.")
 print(Fore.RED + "Fim do programa")    
+os.system('sleep 5')
+os.system('clear')
