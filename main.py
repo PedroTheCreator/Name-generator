@@ -66,7 +66,7 @@ if terminador == 1:
           list_counter+=1
           counter2= counter2 + 10 
           os.system('clear')
-          if escolha != "1" and escolha.lower() != "save" and escolha.lower() != "salvar":
+          if escolha != "1" and escolha.lower() != "save" and escolha.lower() != "salvar" and escolha.lower() != "apagar dados salvos" and escolha.lower() != "wipe":
             print(Fore.GREEN + "\n===== Lista {} =====".format(list_counter))
             nomes.clear()
           elif escolha.lower() == "salvar" or escolha.lower() == "save":
@@ -90,6 +90,7 @@ if terminador == 1:
               os.system("clear")
               arquivo.close()
               nomes.clear()
+              print(Fore.GREEN + "\n===== Lista {} =====".format(list_counter))
             elif save == "2":
               while(x.lower() != "sair"):
                 os.system("clear")
@@ -99,6 +100,9 @@ if terminador == 1:
                   print("{}. {}".format( (Fore.YELLOW + str(counter3)), (Fore.LIGHTYELLOW_EX + str(i)) ))
                 x = str(input(Fore.GREEN + "Insira qual nome deseja salvar: "))
                 if x.lower() == "sair":
+                  nomes.clear()
+                  os.system("sleep 1")
+                  os.system("clear")
                   break
                 else:
                   x = int(x)
@@ -124,14 +128,36 @@ if terminador == 1:
                 counter3+=1
                 arquivo.write("\n" + str(counter3) + ". " + i)
               print("Nome salvo")
+              os.system("sleep 1")
+              os.system("clear")
               arquivo.close()
               nomes.clear()
+              print(Fore.GREEN + "\n===== Lista {} =====".format(list_counter))
             else:
               print("Opção inválida, não foi possível salvar")
               nomes.clear()
+          elif escolha.lower() == "apagar dados salvos" or escolha.lower() == "wipe":
+            escolha2 = str(input("Digite sim para confirmar: "))
+            if escolha2.lower() == "sim":
+              leitura.close()
+              arquivo.close()
+              arquivo = open("nome.txt","w")
+              arquivo.close()
+              arquivo = open("nome.txt", "a+")
+              arquivo.write("Total de nomes salvos: 0")
+              print("Seus dados foram deletados!")
+              arquivo.close()
+              os.system("sleep 2")
+              os.system("clear")
+              nomes.clear()
+              print(Fore.GREEN + "\n===== Lista {} =====".format(list_counter))
+            else:
+              print("Seus dados ainda estão salvos!")
+              os.system("sleep 2")
+              os.system("clear")
           elif escolha == "1":
             break           
-  except ZeroDivisionError:
+  except:
     print(Fore.RED + "O programa não pode continuar.")
 print(Fore.RED + "Fim do programa")    
 os.system('sleep 5')
